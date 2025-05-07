@@ -15,8 +15,8 @@ export default function Home() {
   const fetchJobs = async (pageNum = 1) => {
     const location = inputRef.current?.value?.trim();
     const endpoint = location
-      ? `http://localhost:3000/byLocation?location=${location}&page=${pageNum}`
-      : `http://localhost:3000/all?page=${pageNum}`;
+      ? `https://mployeebackend-production.up.railway.app/byLocation?location=${location}&page=${pageNum}`
+      : `https://mployeebackend-production.up.railway.app/all?page=${pageNum}`;
 
     try {
       const response = await axios.get(endpoint);
@@ -54,8 +54,6 @@ export default function Home() {
   useEffect(() => {
     if (page > 1) fetchJobs(page);
   }, [page]);
-
- 
 
   return (
     <div className="w-screen h-screen flex">
